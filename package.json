@@ -1,0 +1,30 @@
+{
+  "name": "typescript-exercises",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -b",
+    "build:block1": "tsc -b block1",
+    "build:block2": "tsc -b block2",
+    "build:block3": "tsc -b block3",
+    "build:block4": "tsc -b block4",
+    "build:block5": "tsc -b block5",
+    "build:block6": "tsc -b block6",
+    "build:block7": "tsc -b block7",
+    "build:block8": "tsc -b block8",
+    "build:block9": "tsc -b block9",
+    "build:block10": "tsc -b block10",
+    "build:block11": "tsc -b block11",
+    "build:block12": "tsc -b block12",
+    "start": "ts-node"
+  },
+  "author": "Sascha Lehmann",
+  "license": "MIT",
+  "description": "TypeScript examples for beginners",
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.10.4"
+  }
+}

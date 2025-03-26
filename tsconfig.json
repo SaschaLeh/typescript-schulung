@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": ["es2017", "dom"],
+    "outDir": "dist",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true
+  },
+  "files": [],
+  "references": [
+    { "path": "./block1" },
+    { "path": "./block2" },
+    { "path": "./block3" },
+    { "path": "./block4" },
+    { "path": "./block5" },
+    { "path": "./block6" },
+    { "path": "./block7" },
+    { "path": "./block8" },
+    { "path": "./block9" },
+    { "path": "./block10" },
+    { "path": "./block11" },
+    { "path": "./block12" }
+  ]
+} 
