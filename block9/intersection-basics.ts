@@ -48,23 +48,6 @@ interface Loggable {
   log(message: string): void;
 }
 
-// Class implementing multiple interfaces through intersection
-class Document implements Printable & Loggable {
-  constructor(private content: string) {}
-
-  print(): void {
-    console.log(`Printing: ${this.content}`);
-  }
-
-  log(message: string): void {
-    console.log(`Log: ${message}, Content: ${this.content}`);
-  }
-}
-
-const doc = new Document("Important information");
-doc.print();
-doc.log("Document accessed");
-
 // Intersection with function types
 type Logger = (message: string) => void;
 type Formatter = (input: string) => string;
