@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:block17": "jest --testPathPattern=block17",
     "build": "tsc -b",
     "build:block1": "tsc -b block1",
     "build:block2": "tsc -b block2",
@@ -17,6 +19,13 @@
     "build:block10": "tsc -b block10",
     "build:block11": "tsc -b block11",
     "build:block12": "tsc -b block12",
+    "build:block13": "tsc -b block13",
+    "build:block14": "tsc -b block14",
+    "build:block15": "tsc -b block15",
+    "build:block16": "tsc -b block16",
+    "build:block17": "tsc -b block17",
+    "build:block18": "tsc -b block18",
+    "build:block19": "tsc -b block19",
     "start": "ts-node"
   },
   "author": "Sascha Lehmann",
@@ -25,6 +34,9 @@
   "devDependencies": {
     "typescript": "^5.3.3",
     "ts-node": "^10.9.2",
-    "@types/node": "^20.10.4"
+    "@types/node": "^20.10.4",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "@types/jest": "^29.5.11"
   }
 }
