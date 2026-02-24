@@ -5,16 +5,19 @@ This repository contains practical TypeScript examples organized by topic.
 ## Setup
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Compile TypeScript files:
+
 ```bash
 npm run build
 ```
 
 3. Run a specific example:
+
 ```bash
 npm start -- path/to/example.ts
 ```
@@ -42,16 +45,16 @@ Each block is a self-contained module with its own scope. This means:
 - **Block 2**: Basic Types and Variables
   - Type annotations, primitives, and special types
 
-- **Block 3**: Functions in TypeScript
-  - Function declarations, parameters, and return types
-
-- **Block 4**: Arrays and Tuples
+  - **Block 4**: Arrays and Tuples
   - Working with arrays, array methods, and tuples
+
+- **Block 5**: Functions in TypeScript
+  - Function declarations, parameters, and return types
 
 - **Block 13**: this-Keyword, Arrow Functions & Closures
   - `this`-Problem und Lösungen (Arrow Functions, `.bind()`)
   - Closures: Counter-Factory, Validator, var-in-Loop Falle
-  - Übungen: Fakultätsfunktion (iterativ, rekursiv, memoized), EventEmitter
+  - Übungen: Fakultätsfunktion (iterativ, rekursiv, memoized), Array-Methoden (filter, map, reduce, sort)
 
 ### Day 2: Object-Oriented Programming Concepts
 
@@ -115,8 +118,9 @@ Each block is a self-contained module with its own scope. This means:
 ## Learning Approach
 
 These examples follow a progressive learning path:
+
 1. Starting with simple concepts
 2. Building toward complex applications
 3. Emphasizing practical, real-world usage
 
-Each example is designed to demonstrate key TypeScript features while remaining straightforward enough for beginners to understand. 
+Each example is designed to demonstrate key TypeScript features while remaining straightforward enough for beginners to understand.

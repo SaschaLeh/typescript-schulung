@@ -1,33 +1,24 @@
-# Block 4: Arrays and Tuples
+# Block 4: Functions in TypeScript
 
-This folder contains examples demonstrating arrays and tuples in TypeScript.
+This folder contains examples demonstrating functions in TypeScript.
 
 ## Examples
 
-1. **arrays.ts**
-   - Array type syntax
-   - Array methods (push, pop, shift, unshift)
-   - Array iteration methods (forEach, map, filter, reduce)
-   - Finding elements in arrays (find, findIndex)
-   - Sorting arrays
-   - Multidimensional arrays
-   - Array destructuring and spreading
+1. **function-types.ts**
+   - Different ways to define functions: named, anonymous, arrow
+   - Function type signatures
+   - Optional parameters
+   - Default parameters
+   - Rest parameters
+   - Function overloads
 
-2. **tuples.ts**
-   - Basic tuple syntax
-   - Optional tuple elements
-   - Rest elements in tuples
-   - Readonly tuples
-   - Tuple destructuring
-   - Named tuples
-   - Tuples as function return types
-   - Tuples for coordinates and data parsing
-
-3. **task-organizer.ts**
-   - Practical example combining arrays and tuples
-   - Task management system
-   - Array operations on tuple data
-   - Filtering, sorting, and updating collections of tuples
+2. **calculator.ts**
+   - Real-world calculator application
+   - Function type interfaces
+   - Union types for operation parameters
+   - Error handling in functions
+   - Rest parameters for batch operations
+   - Optional callback function parameters
 
 ## How to Run
 
@@ -36,7 +27,6 @@ This folder contains examples demonstrating arrays and tuples in TypeScript.
 npm run build
 
 # Run a specific example
-npm start -- block4/arrays.ts
-npm start -- block4/tuples.ts
-npm start -- block4/task-organizer.ts
-``` 
+npm start -- block3/function-types.ts
+npm start -- block3/calculator.ts
+```

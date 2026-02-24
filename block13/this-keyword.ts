@@ -6,33 +6,27 @@
  *
  * Merksatz:
  *   Normale Funktionen: this = Aufrufer
- *   Arrow Functions:    this = umgebende Klasse/Scope
+ *   Arrow Functions:    this = umgebender Scope
  */
 
 // ============================================================
 // 1. Das Problem: `this` geht als Callback verloren
 // ============================================================
 
-class Button {
-  label: string;
-
-  constructor(label: string) {
-    this.label = label;
-  }
+const button = {
+  label: "Absenden",
 
   // Reguläre Methode — `this` hängt vom Aufrufer ab
   handleClick(): void {
     console.log(`Button geklickt: ${this.label}`);
-  }
-}
-
-const btn = new Button("Absenden");
+  },
+};
 
 // Direkter Aufruf — funktioniert
-btn.handleClick(); // "Button geklickt: Absenden"
+button.handleClick(); // "Button geklickt: Absenden"
 
 // Als Callback — `this` ist verloren!
-const callback = btn.handleClick;
+const callback = button.handleClick;
 try {
   callback(); // TypeError: Cannot read properties of undefined (reading 'label')
 } catch (e) {
@@ -41,76 +35,86 @@ try {
 
 
 // ============================================================
-// 2. Lösung 1: Arrow Function als Property
+// 2. Lösung 1: Arrow Function als Wrapper
 // ============================================================
 
-class ButtonFixed1 {
-  label: string;
+// Wenn wir die Methode als Callback übergeben, packen wir sie
+// in eine Arrow Function — diese fängt `this` nicht neu ein
+const callbackArrow = () => button.handleClick();
+callbackArrow(); // "Button geklickt: Absenden" — funktioniert!
 
-  constructor(label: string) {
-    this.label = label;
-  }
-
-  // Arrow Function als Property — `this` bleibt immer die Instanz
-  handleClick = (): void => {
-    console.log(`[Arrow] Button geklickt: ${this.label}`);
-  };
+// Typisches Muster: als Event-Handler registrieren
+function simuliereEvent(handler: () => void): void {
+  console.log("Event ausgelöst:");
+  handler();
 }
 
-const btn1 = new ButtonFixed1("Senden");
-const cb1 = btn1.handleClick;
-cb1(); // "[Arrow] Button geklickt: Senden" — funktioniert!
+simuliereEvent(() => button.handleClick());
+// "Button geklickt: Absenden" — Arrow Function bewahrt den Kontext
 
 
 // ============================================================
-// 3. Lösung 2: .bind(this) im Konstruktor
+// 3. Lösung 2: .bind()
 // ============================================================
 
-class ButtonFixed2 {
-  label: string;
+// .bind() erzeugt eine neue Funktion, bei der `this` dauerhaft gesetzt ist
+const gebundenerHandler = button.handleClick.bind(button);
 
-  constructor(label: string) {
-    this.label = label;
-    // Methode dauerhaft an diese Instanz binden
-    this.handleClick = this.handleClick.bind(this);
-  }
+gebundenerHandler(); // "Button geklickt: Absenden" — funktioniert!
+simuliereEvent(gebundenerHandler); // funktioniert auch als Callback
 
+
+// ============================================================
+// 4. Mehrere Objekte: this zeigt auf den jeweiligen Aufrufer
+// ============================================================
+
+const speichern = {
+  label: "Speichern",
   handleClick(): void {
-    console.log(`[Bind] Button geklickt: ${this.label}`);
-  }
-}
+    console.log(`Button geklickt: ${this.label}`);
+  },
+};
 
-const btn2 = new ButtonFixed2("OK");
-const cb2 = btn2.handleClick;
-cb2(); // "[Bind] Button geklickt: OK" — funktioniert!
+const abbrechen = {
+  label: "Abbrechen",
+  handleClick(): void {
+    console.log(`Button geklickt: ${this.label}`);
+  },
+};
+
+console.log("\n=== Mehrere Objekte ===");
+speichern.handleClick(); // "Button geklickt: Speichern"
+abbrechen.handleClick(); // "Button geklickt: Abbrechen"
+
+// Methode "ausleihen" — this zeigt auf den neuen Aufrufer
+const ausgeliehen = speichern.handleClick;
+// ausgeliehen() → TypeError, weil this verloren geht
+
+// Mit bind an ein anderes Objekt binden:
+const anAbbrechen = speichern.handleClick.bind(abbrechen);
+anAbbrechen(); // "Button geklickt: Abbrechen" — this zeigt auf abbrechen!
 
 
 // ============================================================
-// 4. Timer-Beispiel: Reguläre Funktion vs Arrow Function
-//    (direkt aus den Folien)
+// 5. Timer-Beispiel: Reguläre Funktion vs Arrow Function
 // ============================================================
 
-class Timer {
-  seconds: number = 0;
+const timer = {
+  seconds: 0,
 
-  // BROKEN: Reguläre Funktion in setInterval → `this` ist undefined
+  // BROKEN: Reguläre Funktion in setInterval — `this` ist verloren
   startBroken(): void {
     console.log("\n--- Timer (broken) gestartet ---");
-    const interval = setInterval(function (this: any) {
-      // `this` ist hier NICHT die Timer-Instanz!
-      // In strict mode: undefined, sonst: globalThis/window
-      if (this && this.seconds !== undefined) {
-        console.log(`Broken: ${this.seconds} Sekunden`);
-      } else {
-        console.log("Broken: `this` ist undefined oder hat kein .seconds!");
-      }
+    const interval = setInterval(function () {
+      // `this` ist hier NICHT das timer-Objekt!
+      // In strict mode: undefined, sonst: globalThis
+      console.log("Broken: `this` ist hier nicht das timer-Objekt!");
     }, 100);
 
-    // Stoppe nach 300ms für die Demo
-    setTimeout(() => clearInterval(interval), 350);
-  }
+    setTimeout(() => clearInterval(interval), 150);
+  },
 
-  // WORKING: Arrow Function in setInterval → `this` korrekt
+  // WORKING: Arrow Function in setInterval — `this` korrekt
   startWorking(): void {
     console.log("\n--- Timer (working) gestartet ---");
     const interval = setInterval(() => {
@@ -118,19 +122,15 @@ class Timer {
       console.log(`Working: ${this.seconds} Sekunden`);
     }, 100);
 
-    // Stoppe nach 300ms für die Demo
     setTimeout(() => clearInterval(interval), 350);
-  }
-}
+  },
+};
 
 // Demo ausführen
-const timer = new Timer();
-
-// Zuerst den kaputten Timer zeigen
 timer.startBroken();
 
 // Dann den funktionierenden Timer (leicht versetzt starten)
 setTimeout(() => {
   timer.seconds = 0;
   timer.startWorking();
-}, 500);
+}, 300);

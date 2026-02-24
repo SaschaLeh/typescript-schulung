@@ -12,11 +12,12 @@ Edge-Cases:
 - `factorial(0)` → `1`
 - Negative Zahlen → Error werfen
 
-## Exercise 2: EventEmitter & this-Binding (`event-handler.ts`)
+## Exercise 2: Array-Methoden (`arrays.ts`)
 
-Baue einen eigenen EventEmitter und zeige, wie `this` als Callback verloren geht:
+Übe die wichtigsten Array-Methoden:
 
-1. **EventEmitter Klasse** — `on()`, `off()`, `emit()` Methoden
-2. **Logger Klasse** — Methode `log()` nutzt `this.prefix`
-3. **Problem demonstrieren** — `logger.log` als Callback übergeben → `this.prefix` ist undefined
-4. **Zwei Fixes** — Arrow Function Wrapper und `.bind()`
+1. **Erstellen & Ändern** — Array mit `push` erweitern und mit `pop` verkürzen
+2. **Suchen** — Elemente finden mit `includes`, `indexOf` und `find`
+3. **Transformieren** — Daten verarbeiten mit `filter`, `map` und `reduce`
+4. **Sortieren** — Strings alphabetisch und Zahlen numerisch sortieren mit `sort`
+5. **Statistik** — Minimum, Maximum und Durchschnitt eines Zahlen-Arrays berechnen

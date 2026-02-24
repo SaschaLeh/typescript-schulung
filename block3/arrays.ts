@@ -40,17 +40,19 @@ const scores: number[] = [85, 92, 78, 95, 88];
 // ForEach
 console.log("ForEach example:");
 scores.forEach((score, index) => {
-    console.log(`Score ${index + 1}: ${score}`);
+  console.log(`Score ${index + 1}: ${score}`);
 });
 
 // Map
 console.log("\nMap example:");
-const passFail: string[] = scores.map(score => score >= 80 ? "Pass" : "Fail");
+const passFail: string[] = scores.map((score) =>
+  score >= 80 ? "Pass" : "Fail",
+);
 console.log(passFail);
 
 // Filter
 console.log("\nFilter example:");
-const highScores: number[] = scores.filter(score => score >= 90);
+const highScores: number[] = scores.filter((score) => score >= 90);
 console.log("High scores:", highScores);
 
 // Reduce
@@ -61,10 +63,10 @@ console.log(`Average score: ${average.toFixed(2)}`);
 
 // 6. Find methods
 console.log("\nFind example:");
-const firstHighScore = scores.find(score => score > 90);
+const firstHighScore = scores.find((score) => score > 90);
 console.log("First score > 90:", firstHighScore);
 
-const highScoreIndex = scores.findIndex(score => score > 90);
+const highScoreIndex = scores.findIndex((score) => score > 90);
 console.log("Index of first score > 90:", highScoreIndex);
 
 // 7. Sort and Reverse
@@ -82,14 +84,14 @@ console.log("Sorted descending:", reverseSorted);
 // 8. Multidimensional arrays
 console.log("\nMultidimensional array example:");
 const matrix: number[][] = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
 ];
 
 console.log("Matrix:");
-matrix.forEach(row => {
-    console.log(row);
+matrix.forEach((row) => {
+  console.log(row);
 });
 
 // Access elements
@@ -107,4 +109,10 @@ console.log("\nArray spread example:");
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 const combined = [...arr1, ...arr2];
-console.log("Combined array:", combined); 
+console.log("Combined array:", combined);
+
+enum Status {
+  Pending = "pending",
+  Approved = "approved",
+  Deleted = "deleted",
+}

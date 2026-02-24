@@ -6,8 +6,9 @@ Dieses Modul behandelt das `this`-Keyword in TypeScript, den Unterschied zwische
 
 1. **this-keyword.ts**
    - Das Problem: `this` geht als Callback verloren
-   - Lösung 1: Arrow Function als Class Property
-   - Lösung 2: `.bind(this)` im Konstruktor
+   - Lösung 1: Arrow Function als Wrapper
+   - Lösung 2: `.bind()`
+   - Mehrere Objekte und "ausgeliehene" Methoden
    - Timer-Beispiel: reguläre Funktion vs Arrow Function in `setInterval`
    - Merksatz: Normale Funktionen → `this` = Aufrufer / Arrow Functions → `this` = umgebender Scope
 
@@ -23,7 +24,7 @@ Dieses Modul behandelt das `this`-Keyword in TypeScript, den Unterschied zwische
 The `/exercises` folder contains practice exercises to reinforce your understanding of `this` and Closures:
 
 1. **factorial.ts** - Fakultätsfunktion: iterativ, rekursiv und memoized (Closure mit Cache-Map)
-2. **event-handler.ts** - EventEmitter Klasse und this-Binding Problem mit Arrow Function und .bind() Fixes
+2. **arrays.ts** - Array-Methoden: push, pop, includes, indexOf, find, filter, map, reduce, sort
 
 Solutions can be found in the `/solutions` folder.
 
@@ -39,5 +40,5 @@ npx ts-node block13/closures.ts
 
 # Run solutions
 npx ts-node block13/solutions/factorial.ts
-npx ts-node block13/solutions/event-handler.ts
+npx ts-node block13/solutions/arrays.ts
 ```
