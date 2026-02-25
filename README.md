@@ -74,6 +74,12 @@ Each block is a self-contained module with its own scope. This means:
   - Vehicle Basisklasse mit Getter und Validierung
   - Übung: Car Klasse mit Motor, Geschwindigkeitsbegrenzung und SportsCar Subklasse
 
+### Wiederholung Tag 2 → Tag 3
+
+- **Review Day 2**: Bibliotheks-Verwaltungssystem
+  - Festigungsübung: Enums, Interfaces, abstrakte Klassen, Vererbung, Polymorphie
+  - Szenario: Medienverwaltung mit Ausleihe, Suche und typspezifischer Ausgabe
+
 ### Day 3: Advanced Types and Real-World Application
 
 - **Block 9**: Union and Intersection Types
