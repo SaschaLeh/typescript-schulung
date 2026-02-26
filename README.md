@@ -103,6 +103,12 @@ Each block is a self-contained module with its own scope. This means:
   - Generischer `Container<T>` mit `Map<string, T>`
   - Übung: Vollständige `DataStorage<T>` mit CRUD, Suche und Filterung
 
+### Wiederholung Tag 3 → Tag 4
+
+- **Review Day 3**: Ticket-Buchungssystem
+  - Festigungsübung: Union Types, Type Guards, Generics, Error Handling, Async/Await
+  - Szenario: Event-Verwaltung mit generischem Repository, Buchung und Zahlung
+
 ### Day 4: Testing, Angular & Best Practices
 
 - **Block 17**: Jest Testing
@@ -120,6 +126,12 @@ Each block is a self-contained module with its own scope. This means:
 - **Block 19**: ESLint & Prettier Guide
   - Typische Lint-Probleme und deren Korrekturen im Vergleich
   - Setup-Guide: ESLint, Prettier, VS Code Integration
+
+- **Block 20**: Abschlussaufgabe — Angular Todo-App
+  - Eigenständige Angular-Anwendung mit CLI erstellen
+  - Komponenten: TodoInput, TodoItem, TodoList, TodoFooter
+  - TodoService mit Signal-basiertem State Management
+  - Schritt-für-Schritt Anleitung von Projekt-Setup bis fertige App
 
 ## Learning Approach
 

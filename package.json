@@ -27,6 +27,7 @@
     "build:block18": "tsc -b block18",
     "build:block19": "tsc -b block19",
     "build:review-day2": "tsc -b review-day2",
+    "build:review-day3": "tsc -b review-day3",
     "start": "ts-node"
   },
   "author": "Sascha Lehmann",
